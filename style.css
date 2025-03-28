@@ -10,7 +10,7 @@
     width: 100%;
     min-height: 100vh;
     /* min-height ensures the container is at least a certain height. */
-    background: linear-gradient(135deg, #153677, #4e085f);
+    background: linear-gradient(135deg, #6031bf, #1d6fc7);
     padding: 10px;
 }
 .todo{
