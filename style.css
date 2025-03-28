@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+    /* When you use box-sizing: border-box;
+    The width and height include padding and border. */
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    /* min-height ensures the container is at least a certain height. */
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+.todo{
+    width:100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius:10px;
+}
+
+.todo h2{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo h2 img{
+    width:20px;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+input{
+    flex:1; 
+    /* https://chatgpt.com/share/67e3e2d3-1274-8006-848a-1d364f2a61a6  understand what is flex:1 */
+    border:none;
+    outline: none;
+    background: transparent;  
+    padding: 10px;  
+    font-weight: 14px;
+}
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+
+ul li {
+    list-style: none;
+    font-size:17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    /* https://chatgpt.com/share/67e3e5f9-b738-8006-bc0e-46eb12540c38 */
+    cursor: pointer;
+    position: relative; /*Setting a parent container for absolutely positioned children.*/
+}
+
+/* The :: syntax is used for pseudo-elements in CSS.
+Pseudo-elements allow you to style specific parts of an element without adding extra HTML.
+::before creates a virtual element before the actual content of the selected element.
+ */
+ul li::before{
+    content:'';
+    position:absolute;
+    /*Positions it relative to the nearest positioned ancestor (an ancestor with relative, absolute, or fixed).
+If no positioned ancestor is found, it positions relative to the <html> element (the viewport).*/
+    height:28px;
+    width:28px;
+    border-radius: 50%;
+    background-image:url(images/unchecked.jpg); 
+    background-size: cover; 
+    /* background image will scale to completely cover the entire element while maintaining its aspect ratio. */
+    background-position: center;
+    top: 9px;
+    left: 8px;
+    /* Moves the element horizontally from its original position */
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+
+}
+
+ul li.checked::before{
+    background-image: url(images/checked.jpg);
+}
+
+ul li span{
+    position:absolute; /*The <span> is removed from normal document flow and positioned relative to the closest positioned ancestor (likely the <li> if it has position: relative;).*/
+    right:0; /* The <span> moves to the right edge of the <li>.*/
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover{
+    background: #edeef0; /*background-color will not work*/
+}
